@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import { db } from '@/firebase'
 import {
   Container,
   TextField,
@@ -19,8 +20,8 @@ import {
   DialogActions,
 } from '@mui/material'
 import { useUser } from '@clerk/nextjs'
-import { useRouter } from 'next/router'
-import { collection, writeBatch } from 'firebase/firestore'
+import { useRouter } from 'next/navigation'
+import { collection, writeBatch, doc, setDoc, getDoc } from 'firebase/firestore'
 
 export default function Generate() {
   const {isLoaded, isSignedIn, user} = useUser()
@@ -29,7 +30,7 @@ export default function Generate() {
   const [text, setText] = useState('')
   const [name, setName] = useState('')
   const [open, setOpen] = useState('')
-  const router = useRouter
+  const router = useRouter()
   
 
   const handleSubmit = async () => {
@@ -50,10 +51,10 @@ export default function Generate() {
   }
 
   const handleOpen = () =>{
-    setOpenI(true)
+    setOpen(true)
   }
   const handleClose = () =>{
-    setOpenI(false)
+    setOpen(false)
   }
 
   const saveFlashcards = async () =>{
@@ -80,7 +81,7 @@ export default function Generate() {
         batch.set(userDocRef, {flashcards: [{name}]})
     }
 
-    const colRef = collections(userDocRef, name)
+    const colRef = collection(userDocRef, name)
     flashcards.forEach((flashcard) => {
         const cardDocRef = doc(colRef)
         batch.set(cardDocRef, flashcard)
@@ -88,7 +89,7 @@ export default function Generate() {
 
     await batch.commit()
     handleClose()
-    router.push('/flashcards')
+    router.push(`/flashcards`)
   }
 
   return (
@@ -160,8 +161,8 @@ export default function Generate() {
                                         padding: 2,
                                         boxSizing: 'border-box',
                                         },
-                                        '& > div > div:nth-of-type[2]':{
-                                        transform: 'rotateY(180deg)'
+                                        '& > div > div:nth-of-type(2)':{
+                                        transform: 'rotateY(180deg)',
                                         },
                                     }}>
                                         <div>
@@ -185,7 +186,7 @@ export default function Generate() {
             </Grid>
             <Box sx={{ mt:4, display: 'flex', justifyContent: 'center'}}>
                 <Button variant='contained' color='secondary' onClick={handleOpen}>
-                    Svae
+                    Save
                 </Button>
             </Box>
         </Box>
@@ -209,6 +210,7 @@ export default function Generate() {
             </DialogContent>
             <DialogActions>
                 <Button onClick={handleClose}> Cancel </Button>
+                <Button onClick={saveFlashcards}> Save </Button>
             </DialogActions>
         </Dialog>
     </Container>
