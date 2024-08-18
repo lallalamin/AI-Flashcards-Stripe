@@ -33,9 +33,8 @@ export default function SignUpPage() {
             <Typography variant="h4" component="h1" gutterBottom>
                 Sign In
             </Typography>
-            
+            <SignIn></SignIn>
         </Box>
-        <SignIn></SignIn>
     </Container>
   )
 }

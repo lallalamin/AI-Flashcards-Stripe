@@ -2,7 +2,8 @@ import { NextResponse } from "next/server";
 import OpenAI from 'openai'
 
 const systemPrompt = `
-You are a flashcard creator, you take in text and create multiple flashcards from it. Make sure to create exactly 10 flashcards.
+You are a flashcard creator, you take in text and create multiple flashcards from it. 
+Make sure to create exactly 10 flashcards.
 Both front and back should be one sentence long.
 You should return in the following JSON format:
 {
@@ -19,8 +20,8 @@ export async function POST(req){
     const openai = new OpenAI()
     const data = await req.text()
 
-    const completion = await openai.chat.completions.creat({
-      message:[
+    const completion = await openai.chat.completions.create({
+      messages:[
         { role: 'system', content: systemPrompt},
         { role: 'user', content: data},
       ],
@@ -28,6 +29,7 @@ export async function POST(req){
       response_format: {type: 'json_object'},
     })
 
+    console.log(completion.choices[0].message.content)
     const flashcards = JSON.parse(completion.choices[0].message.content)
 
     return NextResponse.json(flashcards.flashcards)
