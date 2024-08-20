@@ -1,9 +1,10 @@
 import Image from "next/image";
-import { AppBar, Container, Toolbar, Typography, Button, Box, Grid } from "@mui/material"
+import { AppBar, Container, Toolbar, Typography, Button, Box, Grid, Icon } from "@mui/material"
 import getStripe from "@/utils/get-stripe";
 import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 import Head from "next/head";
 import CustomAppBar from "./navigation";
+import CustomFooter from "./footer";
 
 export default function Home() {
   return (
@@ -13,18 +14,21 @@ export default function Home() {
         <title>BrainCards</title>
         <meta name="description" content="Create flashcard from your text"></meta>
       </Head>
-      <div id='header'>
-        <Box sx={{textAlign: 'center', justifyContent: 'center'}}>
-          <Typography variant="h2" component="h1" gutterBottom>
-            Welcome to Flashcard SaaS
-          </Typography>
-          <Typography variant="h5" component="h2" gutterBottom>
-            The easiest way to create flashcards from your text.
-          </Typography>
-          <Button variant="contained" color="primary" sx={{mt: 2, mr: 2}} href="/generate">
+      <div id='header' style={{ height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+        <Box sx={{textAlign: 'center'}}>
+          <div className="welcome-bg">
+            <Typography className="welcome-title" variant="h3" component="h1" gutterBottom>
+              Master you learning with lightning-fast flashcard
+            </Typography>
+            <Typography variant="h5" component="h2" gutterBottom>
+              The easiest way to create flashcards from your text.
+            </Typography>
+          </div>
+          
+          <Button className="button-white" variant="contained" color="primary" sx={{mt: 2, mr: 2}} href="/generate">
             Get Started
           </Button>
-          <Button variant="outlined" color="primary" sx={{mt: 2}}>
+          <Button className="button-blue" variant="outlined" color="primary" sx={{mt: 2}}>
             Learn More
           </Button>
         </Box>
@@ -101,6 +105,7 @@ export default function Home() {
           </Grid>
         </Grid>
       </Box>
+      <CustomFooter></CustomFooter>
     </main>
     );
 }

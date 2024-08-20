@@ -12,7 +12,7 @@
   background-color: white;
 }
 
-.nav-button-up{
+.button-white{
   background-color: white;
   color: black;
   border: 1.8px solid rgb(160, 160, 160);
@@ -22,7 +22,7 @@
   margin-left: 10px;
 }
 
-.nav-button-login{
+.button-blue{
   background-color: #2E46CD;
   color: white;
   font-weight: 600;
@@ -47,4 +47,39 @@
   background-image: url(/bg.png);
   background-size: cover;
   background-position: center;
+}
+
+.welcome-bg{
+  background-color: white;
+  border-radius: 30px;
+  padding: 15px 25px 15px 25px;
+}
+
+.welcome-title{
+  font-weight: 700;
+}
+
+.icon-black {
+  color: black;
+  font-size: 30px;
+}
+
+.social-media{
+  display: flex;
+  justify-content: space-around; /* or space-between, depending on your desired spacing */
+  /* Adjust this as needed; 100% makes it full-width of its parent */
+  width: 10%;
+}
+
+.legal-stuff{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 15px;
+}
+
+.footer-right{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }

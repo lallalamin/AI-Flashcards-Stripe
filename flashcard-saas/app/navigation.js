@@ -19,8 +19,8 @@ export default function CustomAppBar() {
                 </div>
                 <div>
                     <SignedOut>
-                        <Button color="inherit" href="/sign-up" className="nav-button-up">Sign Up</Button>
-                        <Button color="inherit" href="/sign-in" className="nav-button-login">Login</Button>
+                        <Button color="inherit" href="/sign-up" className="button-white">Sign Up</Button>
+                        <Button color="inherit" href="/sign-in" className="button-blue">Login</Button>
                     </SignedOut>
                     <SignedIn>
                         <Button color="inherit" href="/flashcards" sx={{ mr: 2 }}>My Cards</Button>
