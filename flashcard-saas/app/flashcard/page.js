@@ -15,6 +15,8 @@ import { Container,
     CardContent,
     Card } from "@mui/material"
 import { useSearchParams } from "next/navigation"
+import '../globals.css';
+import NavigationBar from "@/component/NavigationBar"
 
 export default function Flashcard(){
     const {isLoaded, isSignedIn, user} = useUser()
@@ -52,6 +54,8 @@ export default function Flashcard(){
     }
 
     return (
+      <main>
+        <NavigationBar></NavigationBar>
         <Container maxWidth="md">
           {flashcards.length > 0 && (
             <>
@@ -114,6 +118,7 @@ export default function Flashcard(){
             </>
           )}
         </Container>
+        </main>
       );
       
 }
