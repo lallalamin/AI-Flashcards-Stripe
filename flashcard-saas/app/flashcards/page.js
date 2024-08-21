@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation'
 import { collection, writeBatch, doc, setDoc, getDoc } from 'firebase/firestore'
 import { db } from "@/firebase"
 import { Container, Grid, Card, CardActionArea, CardContent, Typography } from "@mui/material"
+import NavigationBar from "@/component/NavigationBar"
 
 
 export default function Flashcards(){
@@ -43,7 +44,12 @@ export default function Flashcards(){
     }
 
     return(
+        <main>
+            <NavigationBar></NavigationBar>
         <Container maxwidth="vw">
+            <Typography variant="h3" sx={{ marginTop: '50px', fontWeight: 600}}>
+                Your Flashcard
+            </Typography>
             <Grid container spacing={3} sx={{ mt: 4 }}>
             {flashcards.map((flashcard, index) => (
                 <Grid item xs={12} sm={6} md={4} key={index}>
@@ -59,6 +65,14 @@ export default function Flashcards(){
                 </Grid>
             ))}
             </Grid>
+            <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
+                <img 
+                src="\blueSquare.png" 
+                width="400px" 
+                style={{ padding: '0 0 0 50px' }} 
+                />
+            </div>
         </Container>
+        </main>
     )
 }

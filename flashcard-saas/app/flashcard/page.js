@@ -17,6 +17,7 @@ import { Container,
 import { useSearchParams } from "next/navigation"
 import '../globals.css';
 import NavigationBar from "@/component/NavigationBar"
+import Footer from "@/component/Footer"
 
 export default function Flashcard(){
     const {isLoaded, isSignedIn, user} = useUser()
