@@ -12,8 +12,8 @@ export default function CustomAppBar() {
                     </Typography>
                 </div>
                 <div>
-                    <Button color="inherit" href="#Pricing" className="nav-item" sx={{ color:'black'}}>Pricing</Button>
                     <Button color="inherit" href="#About" className="nav-item" sx={{ color:'black'}}>About</Button>
+                    <Button color="inherit" href="#Pricing" className="nav-item" sx={{ color:'black'}}>Pricing</Button>
                     <Button color="inherit" href="/resources" className="nav-item" sx={{ color:'black'}}>Resource</Button>
                     <Button color="inherit" href="/contact" className="nav-item" sx={{ color:'black'}}>Contact</Button>    
                 </div>
