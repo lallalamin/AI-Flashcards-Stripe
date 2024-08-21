@@ -6,6 +6,7 @@ import Head from "next/head";
 import CustomAppBar from "./navigation";
 import CustomFooter from "./footer";
 import NavigationBar from "@/component/NavigationBar"
+import Footer from "@/component/Footer"
 import AutoFixHighIcon from '@mui/icons-material/AutoFixHigh';
 import PsychologyIcon from '@mui/icons-material/Psychology';
 import PlaceIcon from '@mui/icons-material/Place';
@@ -30,10 +31,10 @@ export default function Home() {
               The easiest way to create flashcards from your text.
             </Typography>
           </div>
-          <Button className="button-white" variant="contained" color="primary" sx={{mt: 2, mr: 2}} href="/generate">
+          <Button className="button-white" variant="contained" color="primary" sx={{ mt: 2, mr: 2, backgroundColor: 'white', color: 'black', fontWeight: 600, borderRadius: '10px', padding: '5px 15px 5px 15px', marginLeft: '10px','&:hover': {backgroundColor: '#e2e2e2',}, }} href="/generate">
             Get Started
           </Button>
-          <Button className="button-blue" variant="outlined" color="primary" sx={{mt: 2}}>
+          <Button className="button-blue" variant="outlined" color="primary" sx={{ mt: 2, backgroundColor: '#2E46CD', color: 'white', fontWeight: 600, borderRadius: '10px', padding: '5px 15px 5px 15px', marginLeft: '10px','&:hover': {backgroundColor: '#1565C0',}, }}>
             Learn More
           </Button>
         </Box>
@@ -197,7 +198,7 @@ export default function Home() {
           style={{ padding: '0 0 0 50px' }} 
         />
       </div>
-      <CustomFooter></CustomFooter>
+      <Footer></Footer>
     </main>
     );
 }
